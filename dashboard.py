@@ -11,7 +11,7 @@ end = st.date_input('End Date', value = pd.to_datetime('today'))
 
 def relativeret(df):
     rel = df.pct_change()
-    cumret = (1+rel).cumprod() - 1
+    cumret = (1+rel).cumprod() - 1 
 
     # Fill first value for cumulative return
     cumret = cumret.fillna(0)
