@@ -6,7 +6,7 @@ st.title('Finance Dashboard')
 
 tickers = ('TSLA', 'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'BTC-USD', 'ETH-USD')
 dropdown = st.multiselect('Pick assets', tickers)
-start = st.date_input('Start Date', value = pd.to_datetime('2021-01-01'))
+start = st.date_input('Start Date', value = pd.to_datetime('2020-01-01'))
 end = st.date_input('End Date', value = pd.to_datetime('today'))
 
 def relativeret(df):
@@ -19,6 +19,6 @@ def relativeret(df):
 
 if len(dropdown) > 0:
     df = relativeret(yf.download(dropdown,start,end)['Adj Close'])
-    st.header('Returns of {}'.format(dropdown))
+    st.header('Returns of {}'.format(dropdown)) 
 
     st.line_chart(df) 
